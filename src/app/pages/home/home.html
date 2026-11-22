@@ -1,0 +1,465 @@
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
+  <section class="relative py-8 lg:py-24 overflow-hidden">
+    <div class="container mx-auto px-2 md:px-4 max-w-7xl">
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="lg:w-1/2 text-left px-2">
+          <span
+            class="inline-block py-1 px-3 rounded-md bg-blue-50 text-primary-blue text-[10px] md:text-xs font-bold uppercase tracking-widest mb-4 md:mb-6 border border-blue-100"
+          >
+            Free South African Legal Support
+          </span>
+          <h1
+            class="text-3xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-4 md:mb-6"
+          >
+            Got a Problem? <br />
+            <span class="text-primary-blue">Let's see if you have a Case.</span>
+          </h1>
+          <p
+            class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 leading-relaxed"
+          >
+            Connect with experts to determine if your situation has legal merit.
+            Fast, professional, and built for South Africa.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              [routerLink]="['createassessment']"
+              class="py-3 md:py-4 px-8 md:px-10 text-center bg-accent-orange text-white rounded-xl md:rounded-full shadow-lg hover:bg-[#b04341] transition-all transform active:scale-95"
+            >
+              Start My Assessment
+            </a>
+
+            <a
+              [routerLink]="['createassessment']"
+              class="py-3 md:py-4 px-8 md:px-10 bg-blue-500 text-center text-white rounded-xl md:rounded-full shadow-lg hover:bg-[#b04341] transition-all transform active:scale-95"
+            >
+              Create a free will
+            </a>
+          </div>
+          <br />
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              [routerLink]="['createassessment']"
+              class="py-3 md:py-4 px-8 md:px-10 text-center bg-blue-500 text-white rounded-xl md:rounded-full shadow-lg hover:bg-[#b04341] transition-all transform active:scale-95"
+            >
+              Create a Free Contract
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2 relative w-full px-2">
+          <div
+            class="absolute -inset-4 bg-primary-blue/5 rounded-full blur-3xl"
+          ></div>
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800"
+            alt="Legal Justice"
+            class="relative rounded-2xl md:rounded-3xl shadow-xl border-4 md:border-8 border-white object-cover h-[250px] md:h-[400px] w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="how-it-works"
+    class="py-10 md:py-24 bg-white rounded-2xl md:rounded-[3rem] shadow-sm border border-slate-100 mx-1 md:mx-4"
+  >
+    <div class="container mx-auto px-2 md:px-4 max-w-6xl">
+      <div class="text-center mb-8 md:mb-16">
+        <h2
+          class="text-2xl md:text-4xl font-bold text-primary-blue mb-2 tracking-tight"
+        >
+          Simple 3 Step Process
+        </h2>
+        <div class="h-1 w-16 bg-accent-orange mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+        <div
+          class="group bg-bg-light rounded-xl md:rounded-3xl overflow-hidden border border-slate-100 shadow-sm"
+        >
+          <div class="h-32 md:h-48 overflow-hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=500"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-5 md:p-8">
+            <div class="flex items-center gap-3 mb-2 md:mb-4">
+              <span
+                class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-blue text-white text-xs font-bold"
+                >1</span
+              >
+              <h3 class="text-lg font-bold text-slate-900">Tell Your Story</h3>
+            </div>
+            <p class="text-slate-600 text-[13px] md:text-sm leading-relaxed">
+              Complete our assessment form. Provide the Who, What, and When of
+              your situation.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group bg-bg-light rounded-xl md:rounded-3xl overflow-hidden border border-slate-100 shadow-sm"
+        >
+          <div class="h-32 md:h-48 overflow-hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=500"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-5 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span
+                class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-blue text-white text-xs font-bold"
+                >2</span
+              >
+              <h3 class="text-lg font-bold text-slate-900">Expert Review</h3>
+            </div>
+            <p class="text-slate-600 text-[13px] md:text-sm leading-relaxed">
+              Our network analyzes your facts against current legislation and
+              past court precedents.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group bg-bg-light rounded-xl md:rounded-3xl overflow-hidden border border-slate-100 shadow-sm"
+        >
+          <div class="h-32 md:h-48 overflow-hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=500"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-5 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span
+                class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-blue text-white text-xs font-bold"
+                >3</span
+              >
+              <h3 class="text-lg font-bold text-slate-900">Get a Go/No-Go</h3>
+            </div>
+            <p class="text-slate-600 text-[13px] md:text-sm leading-relaxed">
+              Receive a Report clarifying if your case is strong enough, saving
+              you time and money.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-24 bg-bg-light">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4"
+      >
+        <div class="max-w-xl">
+          <h2
+            class="text-2xl md:text-4xl font-extrabold text-primary-blue mb-2"
+          >
+            Legal Insights
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600">
+            Navigate the South African legal terrain with confidence.
+          </p>
+        </div>
+        <a
+          href="/articles/"
+          class="text-xs md:text-sm text-primary-blue font-bold flex items-center gap-1"
+        >
+          View All Articles →
+        </a>
+      </div>
+
+      <div class="container mx-auto px-2 md:px-4 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 flex flex-col h-full"
+          >
+            <div class="p-5 md:p-8 flex-grow">
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="px-2 py-0.5 bg-orange-50 text-accent-orange text-[9px] font-black uppercase rounded"
+                  >Article</span
+                >
+                <span class="text-[10px] text-slate-400">Jan 31, 2026</span>
+              </div>
+              <h3
+                class="text-lg md:text-xl font-bold text-slate-900 mb-2 leading-tight"
+              >
+                lobola-misconception-3
+              </h3>
+              <p class="text-slate-500 text-[13px] md:text-sm line-clamp-3">
+                Lobola alone does not mean a customary marraige in south africa,
+                lobola is but a put of a broader array of processes.
+              </p>
+            </div>
+            <div class="px-5 pb-5 md:px-8 md:pb-8">
+              <a
+                href="/article/lobola-misconception-3/"
+                class="block w-full text-center py-2.5 bg-slate-50 text-primary-blue text-xs font-black uppercase tracking-widest rounded-lg hover:bg-primary-blue hover:text-white transition-all"
+              >
+                Read More
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 flex flex-col h-full"
+          >
+            <div class="p-5 md:p-8 flex-grow">
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="px-2 py-0.5 bg-orange-50 text-accent-orange text-[9px] font-black uppercase rounded"
+                  >Article</span
+                >
+                <span class="text-[10px] text-slate-400">Jan 31, 2026</span>
+              </div>
+              <h3
+                class="text-lg md:text-xl font-bold text-slate-900 mb-2 leading-tight"
+              >
+                lobola-misconception-2
+              </h3>
+              <p class="text-slate-500 text-[13px] md:text-sm line-clamp-3">
+                Lobola alone does not mean a customary marraige in south africa,
+                lobola is but a put of a broader array of processes.Lobola alone
+                does not mean a customary marraige in south africa, lobola is
+                but a put of a broader array of processes.
+              </p>
+            </div>
+            <div class="px-5 pb-5 md:px-8 md:pb-8">
+              <a
+                href="/article/lobola-misconception-2/"
+                class="block w-full text-center py-2.5 bg-slate-50 text-primary-blue text-xs font-black uppercase tracking-widest rounded-lg hover:bg-primary-blue hover:text-white transition-all"
+              >
+                Read More
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 flex flex-col h-full"
+          >
+            <div class="p-5 md:p-8 flex-grow">
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="px-2 py-0.5 bg-orange-50 text-accent-orange text-[9px] font-black uppercase rounded"
+                  >Article</span
+                >
+                <span class="text-[10px] text-slate-400">Jan 31, 2026</span>
+              </div>
+              <h3
+                class="text-lg md:text-xl font-bold text-slate-900 mb-2 leading-tight"
+              >
+                Lobola is Not a Marriage
+              </h3>
+              <p class="text-slate-500 text-[13px] md:text-sm line-clamp-3">
+                Lobola alone does not mean a customary marraige in south africa,
+                lobola is but a put of a broader array of processes.
+              </p>
+            </div>
+            <div class="px-5 pb-5 md:px-8 md:pb-8">
+              <a
+                href="/article/lobola-misconception/"
+                class="block w-full text-center py-2.5 bg-slate-50 text-primary-blue text-xs font-black uppercase tracking-widest rounded-lg hover:bg-primary-blue hover:text-white transition-all"
+              >
+                Read More
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-24 bg-white">
+    <div class="container mx-auto px-2">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8 md:mb-16">
+          <h2
+            class="text-2xl md:text-4xl font-extrabold text-primary-blue mb-2"
+          >
+            Trusted locally
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600">
+            Citizens navigating the legal system with confidence.
+          </p>
+        </div>
+
+        <div class="relative px-2 sm:px-12">
+          <div class="relative z-10 overflow-hidden">
+            <div
+              id="carousel"
+              class="flex transition-transform duration-700 ease-in-out"
+            >
+              <div class="w-full flex-shrink-0 text-center px-4">
+                <blockquote
+                  class="text-lg md:text-2xl font-medium text-slate-800 leading-relaxed mb-6 italic"
+                >
+                  "I was being bullied by my supervisor and didn&#x27;t know my
+                  rights. The expert review was incredibly detailed and helped
+                  me document everything correctly and how to approach the
+                  issue"
+                </blockquote>
+                <div class="flex flex-col items-center">
+                  <div
+                    class="w-8 h-0.5 bg-accent-orange mb-3 rounded-full"
+                  ></div>
+                  <cite class="not-italic">
+                    <span
+                      class="block text-primary-blue font-bold text-sm md:text-xl"
+                      >Lerato</span
+                    >
+                    <span
+                      class="block text-slate-400 text-[9px] uppercase tracking-widest font-semibold"
+                      >Bloemfontein</span
+                    >
+                  </cite>
+                </div>
+              </div>
+
+              <div class="w-full flex-shrink-0 text-center px-4">
+                <blockquote
+                  class="text-lg md:text-2xl font-medium text-slate-800 leading-relaxed mb-6 italic"
+                >
+                  "Excellent platform! I had a complex property dispute. The
+                  assessment was clear, straightforward, and didn&#x27;t use
+                  confusing legal jargon. Use the voice-to-text—it&#x27;s a
+                  lifesaver!"
+                </blockquote>
+                <div class="flex flex-col items-center">
+                  <div
+                    class="w-8 h-0.5 bg-accent-orange mb-3 rounded-full"
+                  ></div>
+                  <cite class="not-italic">
+                    <span
+                      class="block text-primary-blue font-bold text-sm md:text-xl"
+                      >Manqoba</span
+                    >
+                    <span
+                      class="block text-slate-400 text-[9px] uppercase tracking-widest font-semibold"
+                      >Johanneburg</span
+                    >
+                  </cite>
+                </div>
+              </div>
+
+              <div class="w-full flex-shrink-0 text-center px-4">
+                <blockquote
+                  class="text-lg md:text-2xl font-medium text-slate-800 leading-relaxed mb-6 italic"
+                >
+                  "After my car accident, I didn&#x27;t know if I could claim
+                  against the Road Accident Fund. This service helped me
+                  understand my rights without having to pay a huge consultation
+                  fee upfront."
+                </blockquote>
+                <div class="flex flex-col items-center">
+                  <div
+                    class="w-8 h-0.5 bg-accent-orange mb-3 rounded-full"
+                  ></div>
+                  <cite class="not-italic">
+                    <span
+                      class="block text-primary-blue font-bold text-sm md:text-xl"
+                      >Mphela</span
+                    >
+                    <span
+                      class="block text-slate-400 text-[9px] uppercase tracking-widest font-semibold"
+                      >Pretoria</span
+                    >
+                  </cite>
+                </div>
+              </div>
+
+              <div class="w-full flex-shrink-0 text-center px-4">
+                <blockquote
+                  class="text-lg md:text-2xl font-medium text-slate-800 leading-relaxed mb-6 italic"
+                >
+                  "I was unfairly dismissed after 5 years of service. Within 48
+                  hours of submitting my story here, an expert confirmed I had a
+                  strong CCMA case. It gave me such peace of mind."
+                </blockquote>
+                <div class="flex flex-col items-center">
+                  <div
+                    class="w-8 h-0.5 bg-accent-orange mb-3 rounded-full"
+                  ></div>
+                  <cite class="not-italic">
+                    <span
+                      class="block text-primary-blue font-bold text-sm md:text-xl"
+                      >Thabo</span
+                    >
+                    <span
+                      class="block text-slate-400 text-[9px] uppercase tracking-widest font-semibold"
+                      >Soweto</span
+                    >
+                  </cite>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-between absolute top-1/2 -translate-y-1/2 w-full left-0 pointer-events-none"
+            >
+              <button
+                id="prevBtn"
+                class="pointer-events-auto p-2 md:p-3 rounded-full bg-white shadow-md text-primary-blue"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                id="nextBtn"
+                class="pointer-events-auto p-2 md:p-3 rounded-full bg-white shadow-md text-primary-blue"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const carousel = document.getElementById("carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let index = 0;
+    const totalSlides = 4;
+
+    function updateCarousel() {
+      if (totalSlides > 0) {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+      }
+    }
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener("click", () => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+      });
+      prevBtn.addEventListener("click", () => {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+      setInterval(() => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+      }, 10000);
+    }
+  </script>
+</main>

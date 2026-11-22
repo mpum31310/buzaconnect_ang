@@ -1,0 +1,342 @@
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
+  <div class="container mx-auto px-4 py-6 md:py-16 max-w-4xl">
+    <div class="text-center mb-8 md:mb-12">
+      <h1
+        class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3"
+      >
+        Assess Your <span class="text-primary-blue">Case Viability</span>
+      </h1>
+      <p
+        class="text-xs md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed px-2"
+      >
+        Provide your situation's facts in plain language. Our experts use these
+        to determine your legal path in South Africa.
+      </p>
+    </div>
+
+    <div
+      class="bg-white p-4 md:p-12 rounded-2xl md:rounded-[2.5rem] shadow-sm border border-slate-100 relative overflow-hidden"
+    >
+      <div
+        class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary-blue/5 rounded-full blur-3xl"
+      ></div>
+
+      <form method="POST" action="/create/" class="relative z-10">
+        <input
+          type="hidden"
+          name="csrfmiddlewaretoken"
+          value="T6QsUdO1OkxKRIDP2ADBXICZKxl5Seen0bhuSp2q5VJzBAVlPjQRmOVLFYrT8O4U"
+        />
+
+        <div class="space-y-6 md:space-y-10">
+          <div>
+            <h3
+              class="text-sm md:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"
+            >
+              <span
+                class="flex items-center justify-center w-5 h-5 rounded-full bg-primary-blue/10 text-primary-blue text-[10px]"
+                >1</span
+              >
+              Identity & Subject
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="id_author_name"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Your Name / Business Name</label
+                >
+                <input
+                  type="text"
+                  name="author_name"
+                  maxlength="200"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue focus:bg-white transition-all outline-none text-sm"
+                  required
+                  id="id_author_name"
+                />
+                <div class="text-rose-600 text-[10px] mt-1"></div>
+              </div>
+              <div>
+                <label
+                  for="id_case_title"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Case Title (e.g., Unfair Dismissal at ABC Corp)</label
+                >
+                <input
+                  type="text"
+                  name="case_title"
+                  maxlength="255"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue focus:bg-white transition-all outline-none text-sm"
+                  required
+                  id="id_case_title"
+                />
+                <div class="text-rose-600 text-[10px] mt-1"></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm md:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"
+            >
+              <span
+                class="flex items-center justify-center w-5 h-5 rounded-full bg-primary-blue/10 text-primary-blue text-[10px]"
+                >2</span
+              >
+              Legal Context
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="id_jurisdiction"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Province/Region of Incident</label
+                >
+                <select
+                  name="jurisdiction"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue transition-all outline-none text-sm"
+                  required
+                  id="id_jurisdiction"
+                >
+                  <option value="" selected>---------</option>
+
+                  <option value="GP">Gauteng</option>
+
+                  <option value="WC">Western Cape</option>
+
+                  <option value="KZN">KwaZulu-Natal</option>
+
+                  <option value="EC">Eastern Cape</option>
+
+                  <option value="LP">Limpopo</option>
+
+                  <option value="MP">Mpumalanga</option>
+
+                  <option value="NC">Northern Cape</option>
+
+                  <option value="NW">North West</option>
+
+                  <option value="FS">Free State</option>
+
+                  <option value="Other">Outside South Africa</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="id_area_of_law"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Area of Law</label
+                >
+                <select
+                  name="area_of_law"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue transition-all outline-none text-sm"
+                  required
+                  id="id_area_of_law"
+                >
+                  <option value="" selected>---------</option>
+
+                  <option value="Contract Law">
+                    Contract - Agreements and breach of contract.
+                  </option>
+
+                  <option value="Law of Delict">
+                    Damages - Claims for damages(Injury, negligence, Defamation,
+                    ect.).
+                  </option>
+
+                  <option value="Family Law">
+                    Family law - Marriage, divorce, child custody, maintenance,
+                    adoption.
+                  </option>
+
+                  <option value="Law of Persons">
+                    Persons - Legal status (age, capacity, citizenship, etc.).
+                  </option>
+
+                  <option value="Succession / Inheritance Law">
+                    Succession - Wills, estates, and intestate succession.
+                  </option>
+
+                  <option value="Consumer Protection Law">
+                    Consumer Protection - Rights when buying goods or services
+                    (Consumer Protection Act).
+                  </option>
+
+                  <option value="Housing &amp; Rental Law">
+                    Housing - Rights and duties of tenants and landlords (Rental
+                    Housing Act).
+                  </option>
+
+                  <option value="Employment / Labour Law">
+                    Labour - Contracts, unfair dismissal, workplace rights
+                    (Basic Conditions of Employment Act, LRA).
+                  </option>
+
+                  <option value="Company law">
+                    Company - Formation, governance, directors, shareholders.
+                  </option>
+
+                  <option value="Social Security &amp; Pension Law">
+                    Social Security - UIF, social grants, retirement funds.
+                  </option>
+
+                  <option value="Health Law">
+                    Health - Medical consent, patient rights, health
+                    regulations.
+                  </option>
+
+                  <option value="Immigration Law">
+                    Immigration - Visas, residence, work permits.
+                  </option>
+
+                  <option value="Other">
+                    Other - For areas not covered above.
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="mt-4">
+              <label
+                for="id_incident_date"
+                class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                >Date of Main Incident</label
+              >
+              <input
+                type="date"
+                name="incident_date"
+                class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue transition-all outline-none text-sm"
+                required
+                id="id_incident_date"
+              />
+              <p class="text-[9px] md:text-[11px] text-slate-400 mt-1 italic">
+                Prescription periods depend on this date.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm md:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"
+            >
+              <span
+                class="flex items-center justify-center w-5 h-5 rounded-full bg-primary-blue/10 text-primary-blue text-[10px]"
+                >3</span
+              >
+              The Incident Details
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label
+                  for="id_complainant"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Applicant/Complainant</label
+                >
+                <input
+                  type="text"
+                  name="complainant"
+                  maxlength="255"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue text-sm"
+                  required
+                  id="id_complainant"
+                />
+              </div>
+              <div>
+                <label
+                  for="id_respondent"
+                  class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                  >Respondent/Opposing Party</label
+                >
+                <input
+                  type="text"
+                  name="respondent"
+                  maxlength="255"
+                  class="w-full p-2.5 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue text-sm"
+                  required
+                  id="id_respondent"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="id_case_details"
+                class="block text-[11px] md:text-sm font-semibold text-slate-700 mb-1.5"
+                >Detailed Story and Timeline</label
+              >
+              <textarea
+                name="case_details"
+                cols="40"
+                rows="10"
+                class="w-full p-3 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-blue/20 focus:border-primary-blue transition-all outline-none min-h-[150px] text-sm"
+                required
+                id="id_case_details"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-slate-100">
+            <div
+              class="p-3 md:p-6 bg-slate-50 rounded-xl border border-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  name="tos_agreement"
+                  class="w-4 h-4 mt-0.5 text-primary-blue border-slate-300 rounded focus:ring-primary-blue"
+                  required
+                  id="id_tos_agreement"
+                />
+                <label
+                  for="id_tos_agreement"
+                  class="text-[10px] md:text-sm text-slate-700 leading-snug font-medium"
+                >
+                  I confirm I have read and agree to the platform's *Terms of
+                  Service* and *Privacy Policy*.
+                  <span class="text-rose-500">*</span>
+                  <a href="/terms/" class="text-primary-blue hover:underline"
+                    >Terms</a
+                  >
+                  &
+                  <a href="/privacy/" class="text-primary-blue hover:underline"
+                    >Privacy</a
+                  >.
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="p-3 md:p-6 bg-rose-50/50 rounded-xl border border-rose-100"
+            >
+              <div class="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  name="referral_agreement"
+                  class="w-4 h-4 mt-0.5 text-accent-orange border-slate-300 rounded focus:ring-accent-orange"
+                  id="id_referral_agreement"
+                />
+                <label
+                  for="id_referral_agreement"
+                  class="text-[10px] md:text-sm text-slate-700 leading-snug"
+                >
+                  <span
+                    class="font-bold text-accent-orange uppercase text-[9px]"
+                    >Referral:</span
+                  >
+                  I consent to the referral of my case details to a third-party
+                  legal professional for assessment.
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-4 bg-accent-orange text-white text-sm md:text-base font-extrabold rounded-xl shadow-lg hover:bg-[#b04341] transition-all transform active:scale-95"
+            (click)="submitcase()"
+          >
+            Submit Case for Assessment
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

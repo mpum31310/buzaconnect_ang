@@ -1,13 +1,89 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Buzafrontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23CA4E4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 15 7-7 7 7"/></svg>'
+    />
+
+    <title>BuzaConnect | Home - Expert Legal Assessment</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-blue": "#004d99",
+              "accent-orange": "#CA4E4C",
+              "bg-light": "#f8fafc",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Modern Mobile Menu Overlay */
+      #mobile-menu {
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+      }
+      #mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-link-active {
+        color: #004d99;
+        border-bottom: 2px solid #ca4e4c;
+      }
+    </style>
+  </head>
+
+  <body class="bg-bg-light min-h-screen font-sans flex flex-col text-slate-900">
+    <app-root></app-root>
+
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        if (menu.classList.contains("active")) {
+          icon.innerHTML =
+            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+        } else {
+          icon.innerHTML =
+            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+        }
+      });
+
+      window.onclick = function (event) {
+        if (
+          !event.target.matches("#menu-btn") &&
+          !event.target.closest("#menu-btn") &&
+          menu.classList.contains("active")
+        ) {
+          menu.classList.remove("active");
+          icon.innerHTML =
+            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+        }
+      };
+    </script>
+  </body>
 </html>
