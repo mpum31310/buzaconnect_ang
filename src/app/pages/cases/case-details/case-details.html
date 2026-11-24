@@ -1,1 +1,166 @@
-<p>case-details works!</p>
+  <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
+        
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #1e293b; }
+    
+    /* Responsive Chat Height */
+    .chat-container { 
+        height: 400px; /* Shorter on mobile to see the input field */
+        overflow-y: auto; 
+        scroll-behavior: smooth; 
+    } 
+    @media (min-width: 768px) {
+        .chat-container { height: 550px; }
+    }
+    
+    .custom-card { border-radius: 8px; } /* Sharper edges per your request */
+    .custom-bubble { border-radius: 8px; }
+    
+    .user-message { 
+        background-color: #1e3a8a; 
+        color: white; 
+        border-radius: 12px 12px 0 12px; 
+        margin-left: auto; 
+    }
+    .other-message { 
+        background-color: #ffffff; 
+        color: #334155; 
+        border-radius: 12px 12px 12px 0; 
+        margin-right: auto; 
+        border: 1px solid #e2e8f0;
+    }
+
+    .status-go { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .status-no-go { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .status-pending { background-color: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+</style>
+
+<div class="py-4 px-2 md:px-8">
+    <div class="max-w-7xl mx-auto space-y-4 md:space-y-6">
+        
+        <header class="bg-white p-4 md:p-8 custom-card shadow-sm border border-slate-200 border-t-4 border-[#ef4444]">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div>
+                    <h1 class="text-lg md:text-3xl font-black text-slate-900 leading-tight">{{case.title}}</h1>
+                    <p class="text-[11px] md:text-sm text-slate-500 mt-1">By {{case.author}} • {{ case.submissiondate | date: 'd MMM y' }}</p>
+                </div>
+                
+                
+                <span class="px-3 py-1 md:px-4 md:py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-widest rounded status-pending w-fit">
+                    {{case.status}}
+                </span>
+                
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+            
+            <div class="lg:col-span-2 space-y-4 md:space-y-6">
+                
+                <div class="bg-white p-4 md:p-6 custom-card shadow-sm border border-slate-200">
+                    <h2 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 border-b pb-1">Case Summary</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 text-[11px] md:text-sm">
+                        <p><strong class="text-slate-400 block text-[9px] uppercase">Law</strong>{{case.law_category}}</p>
+                        <p><strong class="text-slate-400 block text-[9px] uppercase">Region</strong> {{case.region}}</p>
+                        <p><strong class="text-slate-400 block text-[9px] uppercase">Incident</strong> {{case.incident_date | date: 'd MMM y' }}</p>
+                        <p><strong class="text-slate-400 block text-[9px] uppercase">Applicant</strong> {{case.applicant}}</p>
+                        <p><strong class="text-slate-400 block text-[9px] uppercase">Respondent</strong> {{case.respondent}}</p>
+                        
+                        <p class="text-red-500"><strong class="text-red-500 block text-[9px] uppercase">Consented to refer?</strong> {{case.consent}}</p>
+                        
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 md:p-8 custom-card shadow-sm border border-slate-200">
+                    <h2 class="text-base md:text-xl font-bold text-slate-900 mb-3 border-b pb-1">Detailed Narrative</h2>
+                    <p class="whitespace-pre-wrap text-slate-600 text-[13px] md:text-base leading-relaxed text-justify hyphens-auto">
+                        {{case.case_detail}}
+                    </p>
+                </div>
+            </div>
+
+            <aside class="lg:col-span-1">
+                <div class="p-5 md:p-8 custom-card shadow-lg text-white border-l-4 border-[#ef4444]">
+                    <h3 class="font-black uppercase tracking-widest text-[9px] text-blue-200 mb-3">Assessment</h3>
+                    <div class="text-blue-50 text-[12px] md:text-sm leading-relaxed">
+                        <!-- This template is designed to be included in lawconnect/case_detail.html -->
+
+<div class="space-y-6">
+    <h2 class="text-xl font-bold text-gray-700 mb-4 border-b pb-2 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline align-text-bottom mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 2v-6m2 14H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Final Assessment    
+        
+    </h2>
+
+    
+          
+           <a href="/case/70/assess/" style="display: flex; align-items: center; text-decoration: none; color: red; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg> 
+                <h3 style="margin: 0; color: red;">Add final Assessment</h3>
+            </a>
+        
+    
+
+
+    
+        <div class="p-4 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 text-center text-sm text-gray-600">
+            <p class="font-medium">Assessment Pending.</p>
+            <p class="mt-1 text-xs">A preliminary review will appear here once finalized by an expert.</p>
+        </div>
+    
+</div>
+
+                    </div><br>
+                    <p class="text-[11px] text-slate-500 leading-tight">
+                        This assessment is based solely on the facts provided and does not constitute formal legal advice.
+                    </p>
+                </div>
+                
+            </aside>
+        </div>
+
+        
+        
+        <div class="bg-white p-3 md:p-8 custom-card shadow-md border border-slate-200">
+            <h2 class="text-base md:text-xl font-bold text-slate-900 mb-4 md:mb-6">Expert Q&A</h2>
+            
+            <div id="chat-window" class="chat-container space-y-3 p-2 md:p-6 bg-slate-50 border border-slate-100 rounded mb-4 md:mb-6">
+                
+                    <p class="text-center text-slate-400 italic text-[11px] py-10">Start conversation...</p>
+                
+                
+                
+            </div>
+            <!-- Chat function  -->
+            <form method="post" class="flex flex-col md:flex-row gap-2 md:gap-3">
+                <input type="hidden" name="csrfmiddlewaretoken" value="7XnKDCgUGunyYK4mcnOloIVqhUotmOoT6niQeGoLsMjPTo0RhfoOmen6uAr5P19x">
+                
+                <textarea 
+                    name="message_content" 
+                    id="message_content" 
+                    placeholder="Your question..." 
+                    rows="1"
+                    class="flex-1 p-2 md:p-3 border border-slate-200 rounded focus:ring-1 focus:ring-[#ef4444] outline-none text-[13px] md:text-sm resize-none overflow-hidden" 
+                    required
+                    oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"
+                ></textarea>
+                <button type="submit"
+                        class="bg-[#ef4444] text-white px-6 py-2 md:py-3 rounded font-black uppercase text-[10px] tracking-widest hover:bg-[#dc2626]">
+                    Send
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function scrollToBottom() {
+        const chatWindow = document.getElementById('chat-window');
+        if (chatWindow) { chatWindow.scrollTop = chatWindow.scrollHeight; }
+    }
+    window.onload = scrollToBottom;
+</script>

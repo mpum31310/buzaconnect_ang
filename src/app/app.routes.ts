@@ -12,9 +12,14 @@ import { Terms } from "./pages/terms/terms";
 import { Cases } from "./pages/cases/cases";
 import { Admin } from "./pages/admin/admin";
 import { CaseDetails } from "./pages/cases/case-details/case-details";
-// import { CASES_ROUTES } from "./pages/cases/cases.routes";
+import {ToolKit}from "./pages/tool-kit/tool-kit"
+import {WillTool}from "./pages/will-tool/will-tool"
+import {ContractTool} from "./pages/contract-tool/contract-tool"
+// import {}from "./pages/"
+import { CASES_ROUTES } from "./pages/cases/cases.routes";
 import { authGuard } from "./guards/auth-guard";
 import { authChildGuard } from "./guards/auth-child-guard";
+import {CASE_ROUTES} from "./pages/cases/cases.router"
 
 export const routes: Routes = [
   {
@@ -30,8 +35,29 @@ export const routes: Routes = [
     component: Home,
   },
   {
+    path: "toolkit",
+    component: ToolKit,
+  },
+    {
+    path: "will-tool",
+    component: WillTool,
+  },
+    {
+    path: "contract-tool",
+    component: ContractTool,
+  },
+  {
+    path: "profile",
+    component: Profile,
+  },
+
+  {
     path: "myassessments",
     component: MyAssessments,
+  },
+    {
+    path: " ",
+    component: CaseDetails,
   },
   {
     path: "profile",
@@ -61,13 +87,35 @@ export const routes: Routes = [
     component: Contact,
   },
 
+  // {
+  //   path: "cases",
+  //   component: Cases,
+  //   // canActivateChild: [authChildGuard],
+  //   loadChildren: () =>
+  //     import("./pages/cases/cases.routes").then((r) => r.CASES_ROUTES),
+  // },
+
   {
-    path: "cases",
-    component: Cases,
-    canActivateChild: [authChildGuard],
-    loadChildren: () =>
-      import("./pages/cases/cases.routes").then((r) => r.CASES_ROUTES),
+            path: 'case/casedetail/:id',
+            component: CaseDetails
   },
+
+  // {
+  //   path: "cases",
+  //   component: Cases,
+  //   // canActivateChild: [authChildGuard],
+  //   children: [
+  //     {
+  //           path: '',
+  //           component: Cases
+  //       },
+  //       {
+  //           path: 'casedetail',
+  //           component: CaseDetails
+  //       }
+
+  //   ]
+  // },
 
   {
     path: "admin",

@@ -1,9 +1,11 @@
+
 <header
   class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100"
 >
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     <div class="flex justify-between items-center h-16">
-      <div class="flex items-center space-x-2 md:space-x-4">
+      <!-- Brand & Tagline -->
+      <div class="flex items-center space-x-2 md:space-x-4 shrink-0">
         <a [routerLink]="['home']" class="flex items-center space-x-2 group">
           <svg
             class="w-6 h-6 md:w-8 md:h-8 text-accent-orange transform group-hover:-translate-y-1 transition-transform duration-200"
@@ -28,52 +30,175 @@
           class="flex items-center space-x-3 border-l border-slate-200 pl-2 md:pl-4 h-5 md:h-6"
         >
           <span
-            class="text-[8px] md:text-[10px] font-black uppercase tracking-[0.1em] md:tracking-[0.2em]"
+            class="text-[10px] md:text-sm font-medium text-slate-600 whitespace-nowrap"
+            >Ask and be connected</span
           >
-            <span
-              class="text-[10px] md:text-sm font-medium text-slate-600 whitespace-nowrap"
-              >Ask and be connected</span
-            >
-          </span>
         </div>
       </div>
 
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-8">
         <a
           [routerLink]="['home']"
-          class="text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors"
+          class="text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors whitespace-nowrap"
           >Home</a
         >
 
-        <a
-          [routerLink]="['myassessments']"
-          class="text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors"
-          >My assessments</a
-        >
-        <a
-          [routerLink]="['profile']"
-          class="text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors"
-        >
-          Profile:
-          <span class="text-primary-blue font-semibold">{{loginuser}}</span>
-        </a>
-        <a
-          href="/logout"
-          class="text-sm font-medium text-slate-500 hover:text-red-600 transition-colors"
-          >Logout</a
-        >
+        <!-- Cases Dropdown -->
+        <div class="relative">
+          <button
+            type="button"
+            (click)="toggleDropdown('cases')"
+            class="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors focus:outline-none whitespace-nowrap"
+          >
+            <span>Matters</span>
+            <svg
+              class="w-4 h-4 transition-transform duration-150"
+              [class.rotate-180]="openDropdown === 'cases'"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
 
-        <a
-          [routerLink]="['createassessment']"
-          class="inline-flex items-center px-5 py-2.5 rounded-full bg-accent-orange text-white text-sm font-semibold shadow-md hover:bg-[#b04341] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-        >
-          Start Assessment
-        </a>
+          <div
+            *ngIf="openDropdown === 'cases'"
+            class="absolute left-0 mt-2 w-44 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-50"
+          >
+            <a
+              [routerLink]="['myassessments']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              >My Legal Questions</a
+            >
+            <!-- <a
+              [routerLink]="['attorneys']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              >Practitioners Directory</a
+            > -->
+          </div>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="relative">
+          <button
+            type="button"
+            (click)="toggleDropdown('profile')"
+            class="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-primary-blue transition-colors focus:outline-none whitespace-nowrap"
+          >
+            <span>Profile</span>
+            <svg
+              class="w-4 h-4 transition-transform duration-150"
+              [class.rotate-180]="openDropdown === 'profile'"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          <div
+            *ngIf="openDropdown === 'profile'"
+            class="absolute right-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-50"
+          >
+            <div
+              class="px-4 py-2 text-sm font-medium text-slate-600 border-b border-slate-100"
+            >
+              Signed in:
+              <span class="text-primary-blue font-semibold">{{ loginuser }}</span>
+            </div>
+            <a
+              [routerLink]="['profile']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              > Profile</a
+            >
+           
+              <a
+               href="/logout"
+             
+              class="w-full text-left block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors"
+            >
+              Logout
+          </a>
+             
+            
+          </div>
+        </div>
+
+       
+
+        <!-- Knowledge Toolkit Dropdown Button -->
+        <div class="relative shrink-0">
+          <button
+            type="button"
+            (click)="toggleDropdown('toolkit')"
+            class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-accent-orange text-white text-sm font-semibold shadow-md hover:bg-[#b04341] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none whitespace-nowrap"
+          >
+            <span>Knowledge Toolkit</span>
+            <svg
+              class="w-4 h-4 transition-transform duration-150"
+              [class.rotate-180]="openDropdown === 'toolkit'"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          <div
+            *ngIf="openDropdown === 'toolkit'"
+            class="absolute right-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-50"
+          >
+            <a
+              [routerLink]="['createassessment']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              >Start Case Assessment</a
+            >
+            <a
+              [routerLink]="['will-tool']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              >Create Will</a
+            >
+            <a
+              [routerLink]="['contract-tool']"
+              (click)="closeAllMenus()"
+              class="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-blue transition-colors"
+              >Create Contract</a
+            >
+          </div>
+        </div>
       </nav>
 
+      <!-- Mobile Burger Button -->
       <div class="md:hidden flex items-center">
         <button
+          type="button"
           id="menu-btn"
+          (click)="toggleMobileMenu()"
+          [attr.aria-expanded]="isMobileMenuOpen"
           class="p-2 rounded-md text-slate-600 hover:text-primary-blue hover:bg-slate-100 focus:outline-none"
         >
           <svg
@@ -84,10 +209,18 @@
             stroke="currentColor"
           >
             <path
+              *ngIf="!isMobileMenuOpen"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              *ngIf="isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         </button>
@@ -95,46 +228,165 @@
     </div>
   </div>
 
+  <!-- Mobile Menu (matches #mobile-menu & .active in index.html) -->
   <div
     id="mobile-menu"
-    class="md:hidden absolute w-full bg-white border-b border-slate-200 shadow-xl"
+    [class.active]="isMobileMenuOpen"
+    class="md:hidden absolute left-0 right-0 top-16 w-full bg-white border-b border-slate-200 shadow-xl z-40"
   >
     <div class="px-4 pt-2 pb-6 space-y-2">
       <a
         [routerLink]="['home']"
+        (click)="closeAllMenus()"
         class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
         >Home</a
       >
 
-      <a
-        [routerLink]="['myassessments']"
-        class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
-        >My assessmentssss</a
-      >
-      <a
-        [routerLink]="['profile']"
-        class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
-        >Profile</a
-      >
-      <a
+      <!-- Mobile Cases Section -->
+      <div class="space-y-1">
+        <button
+          type="button"
+          (click)="toggleMobileSection('cases')"
+          class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
+        >
+          <span>Cases</span>
+          <svg
+            class="w-4 h-4 transition-transform duration-150"
+            [class.rotate-180]="mobileSection === 'cases'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div *ngIf="mobileSection === 'cases'" class="pl-4 space-y-1">
+          <a
+            [routerLink]="['myassessments']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-lg"
+            >My Cases</a
+          >
+          <!-- <a
+            [routerLink]="['attorneys']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-lg"
+            >Practitioners Directory</a
+          > -->
+        </div>
+      </div>
+
+      <!-- Mobile Profile Section -->
+      <div class="space-y-1">
+        <button
+          type="button"
+          (click)="toggleMobileSection('profile')"
+          class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
+        >
+          <span>Profile</span>
+          <svg
+            class="w-4 h-4 transition-transform duration-150"
+            [class.rotate-180]="mobileSection === 'profile'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div *ngIf="mobileSection === 'profile'" class="pl-4 space-y-1">
+          <div class="px-3 py-2 text-base font-medium text-slate-600">
+            Logged in:
+            <span class="text-primary-blue font-semibold">{{ loginuser }}</span>
+          </div>
+          <a
+            [routerLink]="['profile', 'edit']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-lg"
+            >Profile</a>
+          <button
+            type="button"
+            (click)="unsubscribe()"
+            class="w-full text-left block px-3 py-2.5 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-red-600 rounded-lg"
+          >
+            Unsubscribes
+          </button>
+          <a
         href="/logout"
-        class="block px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg"
+        (click)="closeAllMenus()"
+        class="block px-3 py-3 text-base font-medium text-grey-300 hover:bg-gray-50 rounded-lg"
         >Logout</a
       >
+        </div>
+      </div>
 
-      <div class="pt-4 px-3">
-        <a
-          [routerLink]="['createassessment']"
-          class="block w-full text-center py-3 px-4 bg-accent-orange text-white font-bold rounded-xl shadow-lg"
+      
+
+      <!-- Mobile Knowledge Toolkit Dropdown -->
+      <div class="pt-2 px-3 space-y-2">
+        <button
+          type="button"
+          (click)="toggleMobileSection('toolkit')"
+          class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-accent-orange text-white text-base font-bold rounded-xl shadow-lg"
         >
-          Start Assessment
-        </a>
+          <span>Knowledge Toolkit</span>
+          <svg
+            class="w-4 h-4 transition-transform duration-150"
+            [class.rotate-180]="mobileSection === 'toolkit'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+
+        <div
+          *ngIf="mobileSection === 'toolkit'"
+          class="bg-slate-50 border border-slate-200 rounded-xl p-2 space-y-1"
+        >
+          <a
+            [routerLink]="['createassessment']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-white rounded-lg"
+            >Start Cases Assessment</a
+          >
+          <a
+            [routerLink]="['create-will']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-white rounded-lg"
+            >Create Will</a
+          >
+          <a
+            [routerLink]="['create-contract']"
+            (click)="closeAllMenus()"
+            class="block px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-white rounded-lg"
+            >Create Contract</a
+          >
+        </div>
       </div>
     </div>
   </div>
 </header>
 
-<router-outlet />
+<main class="flex-1 w-full">
+  <router-outlet />
+</main>
 
 <footer class="bg-primary-blue text-white mt-auto">
   <div class="container mx-auto px-4 py-12 max-w-7xl">
@@ -193,21 +445,4 @@
   </div>
 </footer>
 
-<h1><a [routerLink]="['param',10]" class="btn">Testing Param</a></h1>
-
-<h1>
-  <a (click)="gettingParam(10234230)" class="btn"
-    >Testing Param programatically</a
-  >
-  <br />
-  <a
-    [routerLink]="['about']"
-    [queryParams]="{category: 'mpumelelo',name:'mp'}"
-    class="btn"
-    >Testing Query param programatically</a
-  >
-  <br />
-  <a [routerLink]="['cases']" class="btn">Cases</a><br />
-  <a [routerLink]="['cases/detail',2]" class="btn">Cases details</a><br />
-  <a [routerLink]="['admin']" class="btn">Admin</a>
-</h1>
+<!-- Temporary route test links -->
